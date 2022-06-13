@@ -10,6 +10,7 @@ import {
 
 import './sign-up-form.styles.scss';
 
+
 const defaultFormFields = {
     displayName: '',
     email: '',
@@ -37,7 +38,7 @@ const SignUpForm = () => {
 
         try {
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
-            await createUserDocumentFromAuth(user, { displayName });
+            await createUserDocumentFromAuth(user, { displayName });            
             resetFormFields();
         } catch(error) {
             if(error.code === 'auth/email-already-in-use') {
